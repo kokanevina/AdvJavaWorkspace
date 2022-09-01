@@ -1,6 +1,7 @@
 package com.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class UserServlet extends HttpServlet {
 		System.out.println("Request comes in get");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter pw=response.getWriter();
+		
+		
 		UserImpl impl=new UserImpl();
 		System.out.println("Request comes in post");	
 		String name=request.getParameter("myName");	
@@ -42,7 +46,12 @@ public class UserServlet extends HttpServlet {
 		user.setLocation(location);user.setName(name);
 		user.setPassword(password); user.setUsername(username);	
 		System.out.println(user);
-		impl.register(user);
+		
+		boolean b=impl.register(user);
+		if(b)
+			pw.print("You are registered successfully.......");
+		else
+			pw.print("Something went wrong.....");
 	}
 
 }

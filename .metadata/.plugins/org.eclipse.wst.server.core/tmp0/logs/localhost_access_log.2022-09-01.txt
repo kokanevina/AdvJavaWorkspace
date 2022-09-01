@@ -46,3 +46,14 @@
 127.0.0.1 - - [01/Sep/2022:16:17:42 +0530] "GET / HTTP/1.1" 404 751
 0:0:0:0:0:0:0:1 - - [01/Sep/2022:16:17:43 +0530] "GET /MyFirstServletProject/Register.html HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [01/Sep/2022:16:17:58 +0530] "GET /MyFirstServletProject/UserServlet?myName=vina&course=java&course=web&gender=female&loc=rabale HTTP/1.1" 200 -
+127.0.0.1 - - [01/Sep/2022:16:59:36 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:16:59:36 +0530] "GET /MyFirstServletProject/Register.html HTTP/1.1" 200 2598
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:16:59:57 +0530] "POST /MyFirstServletProject/UserServlet HTTP/1.1" 200 -
+127.0.0.1 - - [01/Sep/2022:17:00:56 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:17:01:16 +0530] "POST /MyFirstServletProject/UserServlet HTTP/1.1" 200 -
+127.0.0.1 - - [01/Sep/2022:17:39:20 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:17:39:21 +0530] "GET /MyFirstServletProject/Register.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:17:39:42 +0530] "POST /MyFirstServletProject/UserServlet HTTP/1.1" 200 -
+127.0.0.1 - - [01/Sep/2022:17:56:12 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:17:56:12 +0530] "GET /MyFirstServletProject/Register.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:17:56:41 +0530] "POST /MyFirstServletProject/UserServlet HTTP/1.1" 200 38
