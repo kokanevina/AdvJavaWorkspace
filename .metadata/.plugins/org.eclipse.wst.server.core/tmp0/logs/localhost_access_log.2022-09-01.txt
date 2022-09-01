@@ -1,0 +1,4 @@
+127.0.0.1 - - [01/Sep/2022:12:47:33 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:12:47:34 +0530] "GET /MyFirstServletProject/DemoServlet HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:12:47:34 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [01/Sep/2022:12:50:39 +0530] "GET /MyFirstServletProject/DemoServlet HTTP/1.1" 200 -
