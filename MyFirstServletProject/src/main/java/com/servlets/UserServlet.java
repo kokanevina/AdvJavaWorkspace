@@ -63,10 +63,15 @@ public class UserServlet extends HttpServlet {
 			
 			String name=impl.login(username,password);
 			if(name!=null)
-				pw.print("You are logged in successfully....... Welcome "+name);
+				//pw.print("You are logged in successfully....... Welcome "+name);
+				response.sendRedirect("Success.html");// new page loaded by server
 			else
-				pw.print("Something went wrong.....");
+			//	pw.print("Something went wrong.....");
+				response.sendRedirect("Error.html");
 			
+		}
+		else if (userAction.equalsIgnoreCase("changePasswordAction")) {
+			// change password
 		}
 	}
 

@@ -9,12 +9,4 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-  <servlet-name>MyServlet</servlet-name>
-  <servlet-class>com.servlets.DemoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  <servlet-name>MyServlet</servlet-name>
-  <url-pattern>/vinaservlet</url-pattern>
-</servlet-mapping>
 </web-app>

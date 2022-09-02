@@ -1,0 +1,3 @@
+Create a from to change password user name: txt fild, current password : password fld, set new password :
+ pswd fild.
+Submit this to Userservlet and do further logic to update the password in db table for given user

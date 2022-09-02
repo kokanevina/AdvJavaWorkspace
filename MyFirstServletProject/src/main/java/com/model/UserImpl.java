@@ -9,12 +9,9 @@ import com.db.MyConnection;
 import com.pojo.User;
 
 public class UserImpl {
-
-	
 	public boolean register(User user) {
 		boolean state=false;
-		try(Connection conn=MyConnection.connect()){
-			
+		try(Connection conn=MyConnection.connect()){		
 			String sql="insert into user values (?,?,?,?,?,?,?,?)";
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, user.getName());
