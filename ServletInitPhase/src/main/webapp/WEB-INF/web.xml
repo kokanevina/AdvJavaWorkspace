@@ -6,7 +6,7 @@
     <welcome-file>Home.html</welcome-file>
     <welcome-file>MyHome.html</welcome-file>
   </welcome-file-list>
-<servlet>
+ <servlet>
 	<servlet-name>MyCompany</servlet-name>
 	<servlet-class>com.servlets.CompanyServlet</servlet-class>
 	<init-param>
@@ -21,5 +21,14 @@
  <servlet-mapping>
  	<servlet-name>MyCompany</servlet-name>
  	<url-pattern>/Company/MyCompanyServlet</url-pattern>
- </servlet-mapping>
+ </servlet-mapping> 
+ <!--  A servlet context parameter is intend for global servlet parameters
+  there is no way to include them with an annotation. 
+  That is why we need to add the servlet context parameter in the web.xml file
+   also known as the deployment descriptor. -->
+ <context-param>
+	 <param-name>city</param-name>
+	 <param-value>mumbai</param-value>
+ </context-param>
+ 
 </web-app>
