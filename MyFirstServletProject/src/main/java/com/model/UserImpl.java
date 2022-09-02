@@ -2,6 +2,7 @@ package com.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.db.MyConnection;
@@ -37,5 +38,31 @@ public class UserImpl {
 			e.printStackTrace();
 		}
 		return state;
+	}
+	
+	public String login (String uname, String pass) {
+		//hari Hari@123
+		String name=null;
+		
+		try(Connection conn=MyConnection.connect()){
+			
+		String sql="select *  from user where username=? and password=?";
+		PreparedStatement pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1,uname);
+		pstmt.setString(2,pass);	
+		System.out.println(pstmt);
+		ResultSet rs= pstmt.executeQuery();
+		if(rs.next()) {
+			name=rs.getString("first_name");
+		}
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return name;
 	}
 }
