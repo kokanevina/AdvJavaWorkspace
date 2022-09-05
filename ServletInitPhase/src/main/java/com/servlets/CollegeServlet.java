@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 				  @WebInitParam(name="contactNumber",value="9898989898")
 			} 
 		  )
+  /*context params can be set only in web.xml*/
 public class CollegeServlet extends HttpServlet {
+	  ServletConfig config;
 	private static final long serialVersionUID = 1L;
        String colName;
        long contactNumber;
@@ -35,6 +37,7 @@ public class CollegeServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+    	this.config=config;
     	System.out.println("in init phase......");
     	colName=config.getInitParameter("collegeName");
     	contactNumber=Long.parseLong(config.getInitParameter("contactNumber"));
@@ -46,6 +49,9 @@ public class CollegeServlet extends HttpServlet {
     	ServletContext context=config.getServletContext();
     	String city=context.getInitParameter("city");
     	System.out.println("Shared Data :"+city);
+    	
+    	// Initialization parameters cannot be set after the context has been initialized
+		//context.setInitParameter("city", "Pune"); 
     }
     
 	/**
@@ -53,7 +59,12 @@ public class CollegeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(colName+"  "+contactNumber);
-		ServletConfig con=getServletConfig();
+		System.out.println(config);
+	
+		ServletContext context= config.getServletContext();
+		System.out.println(context.getInitParameter("city"));
+		
+		//context.setInitParameter("city", "Pune"); // we can not change after init
 	}
 
 	/**

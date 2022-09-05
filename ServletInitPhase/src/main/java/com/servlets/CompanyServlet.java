@@ -38,7 +38,9 @@ public class CompanyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("in doGet");
 		System.out.println(companyNm);
-		
+		ServletContext context=getServletConfig().getServletContext();
+		String ct= context.getInitParameter("city");
+		System.out.println(ct);
 	}
 
 	/**
