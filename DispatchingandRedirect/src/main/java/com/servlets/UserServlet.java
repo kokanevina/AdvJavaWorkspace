@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String userAction=request.getParameter("act");
 		UserImpl impl=new UserImpl();
-		HttpSession session=request.getSession();
+		HttpSession session=request.getSession(); // session is stored at server side
 		if(userAction.equalsIgnoreCase("registerAction"))
 		{
 			String name=request.getParameter("myName");	

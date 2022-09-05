@@ -36,6 +36,7 @@ public class WelcomeServlet2 extends HttpServlet {
 		pw.println(firstname);
 		
 		HttpSession session=request.getSession();
+		
 		String fname=(String)session.getAttribute("firstName");
 		String username=(String)session.getAttribute("username");
 		pw.print("Hey"+fname+"!! You are registered successfully and ur usrname is "+username);
