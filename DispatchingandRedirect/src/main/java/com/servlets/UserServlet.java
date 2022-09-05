@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.UserImpl;
 import com.pojo.User;
@@ -28,6 +29,7 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String userAction=request.getParameter("act");
 		UserImpl impl=new UserImpl();
+		HttpSession session=request.getSession();
 		if(userAction.equalsIgnoreCase("registerAction"))
 		{
 			String name=request.getParameter("myName");	
@@ -46,13 +48,17 @@ public class UserServlet extends HttpServlet {
 			user.setEmailId(emailId);user.setGender(gender);
 			user.setLocation(location);user.setName(name);
 			user.setPassword(password); user.setUsername(username);	
-			System.out.println(user);
-			
+			System.out.println(user);		
 			boolean b=impl.register(user);
-			if(b)
-				pw.print("You are registered successfully.......");
-			else
-				pw.print("Something went wrong.....");
+			if(b) {
+				
+				session.setAttribute("firstName",name );
+				session.setAttribute("username", username);
+				response.sendRedirect("WelcomeServlet2"); // new fresh req generated (get req)
+			}
+			else 
+				response.sendRedirect("ErrorPages/Error.html");
+			
 		}// registerAction
 		else if(userAction.equalsIgnoreCase("loginAction")) {
 			
@@ -63,7 +69,7 @@ public class UserServlet extends HttpServlet {
 			if(name!=null) {
 				RequestDispatcher dispatcher=request.getRequestDispatcher("WelcomeServlet"); // urlpattern
 				request.setAttribute("firstName", name); // setting new value in same request as parameter
-				dispatcher.forward(request, response); // forwarding same req to another servlet
+				dispatcher.forward(request, response); // forwarding same post req to another servlet
 				pw.print("Welcome "+name); // S1 response
 			}
 			else

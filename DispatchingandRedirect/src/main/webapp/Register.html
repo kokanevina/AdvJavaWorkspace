@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <section>
+        <h1>Registration Form</h1>
+        <!--  in action attribute put path of servlet bydefault is get request -->
+        <form action="UserServlet" method="post">
+            <!-- text field-->
+            <label for="fname">First Name:</label>
+            <input id="fname" name="myName" pattern="[A-Za-z]*" required>
+            <label for="age">Age: </label>
+            <input type="number" name="age" id="age" min="20" max="60" required>
+            <label for="contact">Mobile Number: </label>
+            <input id="contact" name="contact" pattern="[0-9]{10}" required  type="tel" >
+            <label for="mail">Email Id: </label>
+            <input type="email" name="emailid" id="mail" required>
+            <label for="uname">Set Username: </label>
+            <input type="text" name="uname"  id="uname" minlength="3" maxlength="10" required>
+            <label for="pass">Set Password: </label>
+            <input type="text" name="pass" id="pass" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}">
+            <label for="confirmpass">Confirm Password: </label>
+            <input type="password"  id="confirmpass" required>
+            <section>
+                <label>Choose Interested Course:</label><br>
+                <label><input type="checkbox" id="ch1" name="course" value="java">:JAVA</label>
+                <label><input type="checkbox" id="ch2" name="course"  value="web" checked required>:WEB BASICS</label>
+                <label><input type="checkbox" id="ch3" name="course"  value="angular">:ANGULAR</label>
+                <label><input type="checkbox" id="ch4" name="course"  value="react">:REACT</label>
+            </section>
+            <section>
+                <label>Choose Gender:</label><br>
+               <label> <input type="radio" id="r1" name="gender" value="male">:MALE</label>
+               <label> <input type="radio" id="r2" name="gender" value="female">:FEMALE</label>
+            </section>
+            <label>Where you want to attend the course:</label>
+            <select id="location" name="loc">
+                <option value="dadar">DADAR</option>
+                <option value="rabale">RABALE</option>
+            </select>
+            <input type="submit" value="REGISTER">
+            <input type="reset">
+            <input type="hidden" name="act" value="registerAction"> 
+        </form>
+    </section>
+</body>
+</html>
