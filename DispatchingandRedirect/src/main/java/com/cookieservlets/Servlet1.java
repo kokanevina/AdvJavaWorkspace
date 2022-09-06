@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.UserImpl;
 
@@ -48,9 +49,10 @@ public class Servlet1 extends HttpServlet {
 			String password=request.getParameter("pass");
 			
 			String name=impl.login(username,password);
+			String key1="firstName";String key2="username";
 			if(name!=null) {
-				Cookie ck1=new Cookie("firstName",name );
-				Cookie ck2=new Cookie("username", username);
+				Cookie ck1=new Cookie(key1,name );
+				Cookie ck2=new Cookie(key2, username);
 				System.out.println(ck1.getMaxAge()); //-1 : cookies will be deleted when browsing session ends
 				
 				ck1.setMaxAge(60); // in sec
@@ -64,8 +66,19 @@ public class Servlet1 extends HttpServlet {
 				
 				response.sendRedirect("Servlet2"); // fresh new request + cookie
 			}
-			else
-				pw.print("Something went wrong");
+			else {
+				String message="error";
+			     int test[]= {12,45};
+			     HttpSession ss=request.getSession();
+			     ss.setAttribute("myArray", test);
+				//InvalidServlet : url + data : url rewriting
+				//? : end or url and start of data key=value
+				//+ : strings attachedwith + url  %
+				//& : multiple key value pairs attached with &
+				response.sendRedirect("ErrorServlet/InvalidServlet?uname="+username+"&errorMessage="+message);// fresh new get request
+				
+			}
+				
 		}
 	}
 
