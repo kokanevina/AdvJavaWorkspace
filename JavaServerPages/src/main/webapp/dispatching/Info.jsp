@@ -14,7 +14,6 @@ out.print("Number 1 is :"+num1 +" and Number 2 is :"+num2); // s1 response
 // no need to write logic of RequestDispatcher
 %>
  <jsp:forward page="Output.jsp">
- 	
  </jsp:forward>  
 <%-- <jsp:include page="Output.jsp"></jsp:include> --%>
 </body>
