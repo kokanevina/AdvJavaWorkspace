@@ -50,8 +50,22 @@ public class EmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		CRUD crud=new CRUD();
+		String userAction=request.getParameter("act");
+		if(userAction.equalsIgnoreCase("add")) {
+			int empId=Integer.parseInt(request.getParameter("empId"));
+			String empName=request.getParameter("empName");
+			double empSalary=Double.parseDouble(request.getParameter("empSalary"));
+			String qual=request.getParameter("qual");
+			Employee emp=new Employee(empId,empName,empSalary,qual);
+			boolean b=crud.addEmployee(emp);
+			if(b) {
+				response.sendRedirect("EmployeeServlet?act=getall"); // fresh new req to same Servlet, doGet
+			}
+			else {
+				System.out.println("ERROR");
+			}
+		}
 	}
 
 }

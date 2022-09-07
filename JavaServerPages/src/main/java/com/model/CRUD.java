@@ -13,12 +13,13 @@ public class CRUD  implements EmployeeDao{
 	
 	public boolean addEmployee(Employee em) {
 		boolean b=false;
-		String sql="insert into employee values(?,?,?)"; 
+		String sql="insert into employee values(?,?,?,?)"; 
 		try (Connection connection=MyConnection.connect()){	  
 			PreparedStatement pstatement=connection.prepareStatement(sql); 
 			pstatement.setInt(1, em.getEmpId());
 			pstatement.setString(2, em.getEmpName());
 			pstatement.setDouble(3, em.getEmpSalary());
+			pstatement.setString(4, em.getQualification());
 			System.out.println(pstatement);
 			System.out.println(pstatement.getClass());
 			
@@ -94,7 +95,8 @@ public class CRUD  implements EmployeeDao{
 					int id=rset.getInt("emp_id");
 					String name=rset.getString("emp_name");
 					double salary=rset.getDouble("emp_salary");
-					 emp=new Employee(id,name,salary);
+					String qual=rset.getString("qualification");
+					 emp=new Employee(id,name,salary,qual);
 				}
 				
 			} 
@@ -119,7 +121,8 @@ public class CRUD  implements EmployeeDao{
 					int id=rset.getInt("emp_id");
 					String name=rset.getString("emp_name");
 					double salary=rset.getDouble("emp_salary");
-					Employee emp=new Employee(id,name,salary);
+					String qual=rset.getString("qualification");
+					Employee emp=new Employee(id,name,salary,qual);
 					empList.add(emp);
 				}
 		} 

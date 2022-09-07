@@ -4,15 +4,19 @@ public class Employee {
 	private int empId;
 	private String empName;
 	private double empSalary;
+	private String qualification;
 	public Employee() {
 		
 	}
-	public Employee(int empId, String empName, double empSalary) {
+	
+	public Employee(int empId, String empName, double empSalary, String qualification) {
 		super();
 		this.empId = empId;
 		this.empName = empName;
 		this.empSalary = empSalary;
+		this.qualification = qualification;
 	}
+
 	public int getEmpId() {
 		System.out.println("getter called....");
 		return empId;
@@ -35,6 +39,12 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", empName=" + empName + ", empSalary=" + empSalary + "]";
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
 	
 	
