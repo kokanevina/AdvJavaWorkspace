@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="com.model.UserImpl, com.pojo.User" %>
+    pageEncoding="ISO-8859-1" import="com.model.UserImpl, com.pojo.User"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>Controller</title>
 </head>
 <body>
+${param.username}<br>
+${param.pass}
 <% 
 UserImpl impl=new UserImpl();
 String username=request.getParameter("username");

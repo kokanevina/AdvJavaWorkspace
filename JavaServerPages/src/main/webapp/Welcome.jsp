@@ -12,5 +12,14 @@ String username=(String)session.getAttribute("uname");
 String name=(String)session.getAttribute("firstName");
 %>
 <b>Hello <span style="color:blue;"><%=name%></span> you are logged in successfully with user name <%=username%></b>
+<br>
+${sessionScope}
+<br>
+${sessionScope.uname}
+${sessionScope.firstName}
+${34+56}
+${header}
+<br>
+
 </body>
 </html>
