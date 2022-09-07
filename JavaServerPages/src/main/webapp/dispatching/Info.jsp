@@ -11,9 +11,10 @@
 double num1=Double.parseDouble(request.getParameter("num1"));
 double num2=Double.parseDouble(request.getParameter("num2"));
 out.print("Number 1 is :"+num1 +" and Number 2 is :"+num2); // s1 response
-// no need to write logic of RequestDispatcher
+request.setAttribute("pie", 3.142);
 %>
  <jsp:forward page="Output.jsp">
+ 	<jsp:param value="23" name="radius"/>
  </jsp:forward>  
 <%-- <jsp:include page="Output.jsp"></jsp:include> --%>
 </body>
