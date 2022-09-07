@@ -1,3 +1,6 @@
+<!--  Designer Unfriendly, controlling logic/businerlogic+ view : mixture 
+jstl is replacement to scripting elements: declaration tag, scriptlet tag, expression tag-->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -18,7 +21,6 @@ pageContext.setAttribute("cname",company,PageContext.PAGE_SCOPE);
 pageContext.setAttribute("clocation",location,PageContext.REQUEST_SCOPE);
 pageContext.setAttribute("ccontact",contact,PageContext.SESSION_SCOPE);
 pageContext.setAttribute("cestaYear",eYear,PageContext.APPLICATION_SCOPE);
-
 
 String data1=(String)pageContext.getAttribute("cname", PageContext.PAGE_SCOPE);
 String data2=(String)pageContext.getAttribute("clocation", PageContext.REQUEST_SCOPE);
