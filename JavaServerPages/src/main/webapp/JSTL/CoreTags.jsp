@@ -12,7 +12,7 @@
 <c:out value="company" ></c:out>
 <c:out value="${company}" ></c:out>
 <form action="CoreTags.jsp">
-<label>Enter age:</label><input type="number" name="age"> 
+<label>Enter age:</label><input type="number"  name="age"> 
 <input type="submit"> 
 </form>
 <c:out value="${param.age}"></c:out>
@@ -31,6 +31,17 @@
 	<c:otherwise>
 		<c:out value="You are not valid voter"></c:out>
 	</c:otherwise>
-</c:choose>
+</c:choose><br>
+<%! int myArray[]={56,34,23,78,56}; %>
+<%request.setAttribute("array", myArray); 
+String india="India-is-my-country";
+request.setAttribute("myString", india);
+%>
+<c:forEach items="${array}" var="num" >
+	<c:out value="${num}"></c:out><br>
+</c:forEach>
+<c:forTokens items="${myString}" delims="-" var="token">
+	<c:out value="${token}"></c:out><br>
+</c:forTokens>
 </body>
 </html>
