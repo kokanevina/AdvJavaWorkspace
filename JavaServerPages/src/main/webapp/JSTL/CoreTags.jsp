@@ -43,5 +43,7 @@ request.setAttribute("myString", india);
 <c:forTokens items="${myString}" delims="-" var="token">
 	<c:out value="${token}"></c:out><br>
 </c:forTokens>
+<c:forEach begin="1" end="10" step="1" var="i">${i}<br>
+</c:forEach>
 </body>
 </html>
