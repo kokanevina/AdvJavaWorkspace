@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/sql"  prefix="sql"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,8 @@ instead direct use session key -->
 <c:forEach items="${eList}" var="emp">
 <tr>
 	<td>${emp.empId}</td>
-	<td>${emp.empName}</td>
+	<td>${fn:toLowerCase(emp.empName)}</td>
+	<td><c:out value="${fn:toUpperCase(emp.empName)}"></c:out></td>
 	<td>${emp.empSalary}</td>
 </tr>
 </c:forEach>
@@ -36,11 +38,11 @@ instead direct use session key -->
 <sql:query var="rs" dataSource="${conn}" >select * from employee </sql:query>
 <table>
 <c:forEach var="row" items="${rs.rows}">
-<tr>
-	<td>${row.emp_id}</td>
-	<td>${row.emp_name}</td>
-	<td>${row.emp_salary}</td>
-</tr>
+	<tr>
+		<td>${row.emp_id}</td>
+		<td>${row.emp_name}</td>
+		<td>${row.emp_salary}</td>
+	</tr>
 </c:forEach>
 
 </table>
