@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="MyUserServlet?act=getall">Show All Users</a><br> <!--  get request -->
+<a href="MyUserServlet?act=getall">Show All Users</a><br> 
+<a  href="MyUserServlet?act=logout">Log out</a>
+<!--  get request -->
 <b>Hello ${username}....</b> ${successMessage}
 <p>You are welcome here...</p>
 </body>

@@ -31,7 +31,12 @@ public class MyUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		String userAction=request.getParameter("act");
+		HttpSession session=request.getSession();
+		if(userAction.equalsIgnoreCase("logout")) {
+			session.invalidate();
+			response.sendRedirect("Home.jsp");
+		}
 	}
 
 	/**
