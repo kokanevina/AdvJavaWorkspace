@@ -9,9 +9,9 @@
 <body>
 <h2>LOGIN FORM</h2>
 ${errroMessage}
-<form action="MyUserServlet" method="post">
-<label>User Name:</label><input type="text" name="username" id="uname" required><br><br>
-<label>Password:</label><input type="text" name="pass" id="pass" required><br><br>
+<form action="LoginServlet" method="post">
+<label>User Name:</label><input type="text" name="username" id="uname" ><br><br>
+<label>Password:</label><input type="text" name="pass" id="pass" ><br><br>
 <input type="submit" value="LOGIN"> <input type="reset">  
 <input type="hidden" name="act" value="loginAction"> 
 </form> 
