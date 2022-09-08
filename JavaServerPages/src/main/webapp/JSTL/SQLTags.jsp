@@ -26,13 +26,13 @@ instead direct use session key -->
 <h3>JSTL SQL TAGS</h3>
 
 
-<sql:setDataSource 
+ <sql:setDataSource 
 	driver="com.mysql.cj.jdbc.Driver" 
 	password="root" 
 	user="root" 
 	url="jdbc:mysql://localhost:3306/jdbc_veena" 
 	var="conn" 
-	scope="session"/>
+	scope="session"/> 
 
 <!--  DML: executeUpdate, Select : executeQuery -->
 <sql:query var="rs" dataSource="${conn}" >select * from employee </sql:query>

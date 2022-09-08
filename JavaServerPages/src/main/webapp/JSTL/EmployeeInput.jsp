@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- action="../EmployeeServlet" -->
 <h2>Enter Employee Details to store</h2>
-<form action="../EmployeeServlet" method="post">
+<form action="InsertSQL.jsp" method="post">
 <label>Enter id:</label>
 <input type="number" name="empId"> 
 <label>Enter name:</label>
