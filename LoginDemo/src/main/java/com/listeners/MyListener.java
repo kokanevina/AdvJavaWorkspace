@@ -20,6 +20,7 @@ public class MyListener implements HttpSessionListener, HttpSessionAttributeList
     public void sessionCreated(HttpSessionEvent se)  { 
        System.out.println("session created.........");
        System.out.println(se.getSession().getId());
+     
     }
     public void sessionDestroyed(HttpSessionEvent se)  { 
     	 System.out.println("session destroyed.........");
