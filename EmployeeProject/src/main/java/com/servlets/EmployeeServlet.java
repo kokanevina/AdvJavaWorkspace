@@ -48,7 +48,14 @@ public class EmployeeServlet extends HttpServlet {
 				response.sendRedirect("EmployeeServlet?act=getall");
 			}
 		}
-		
+		else if(userAction.equalsIgnoreCase("get")) {
+			int id=Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
+			Employee employee=crud.getEmployeeById(id);
+			session.setAttribute("employee", employee);
+			System.out.println(employee);
+			response.sendRedirect("UpdateEmployee.jsp");
+		}
 		
 		
 		
@@ -61,12 +68,26 @@ public class EmployeeServlet extends HttpServlet {
 		CRUD crud=new CRUD();
 		String userAction=request.getParameter("act");
 		if(userAction.equalsIgnoreCase("add")) {
-			int empId=Integer.parseInt(request.getParameter("empId"));
+			int empId=Integer.parseInt(request.getParameter("empId")); //new
 			String empName=request.getParameter("empName");
 			double empSalary=Double.parseDouble(request.getParameter("empSalary"));
 			String qual=request.getParameter("qual");
 			Employee emp=new Employee(empId,empName,empSalary,qual);
 			boolean b=crud.addEmployee(emp);
+			if(b) {
+				response.sendRedirect("EmployeeServlet?act=getall"); // fresh new req to same Servlet, doGet
+			}
+			else {
+				response.sendRedirect("Error.jsp");
+			}
+		}
+		else if(userAction.equalsIgnoreCase("update")) {
+			int empId=Integer.parseInt(request.getParameter("empId")); // existing
+			String empName=request.getParameter("empName");
+			double empSalary=Double.parseDouble(request.getParameter("empSalary"));
+			String qual=request.getParameter("qual");
+			Employee emp=new Employee(empId,empName,empSalary,qual);
+			boolean b=crud.updateEmployee(emp);
 			if(b) {
 				response.sendRedirect("EmployeeServlet?act=getall"); // fresh new req to same Servlet, doGet
 			}

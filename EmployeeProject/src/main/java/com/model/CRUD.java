@@ -41,12 +41,13 @@ public class CRUD  implements EmployeeDao{
 	
 	public boolean updateEmployee(Employee em) {
 		boolean b=false;
-		String sql="update employee set emp_name=?,emp_salary=? where emp_id=?"; 
+		String sql="update employee set emp_name=?,emp_salary=?, qualification=? where emp_id=?"; 
 		try (Connection connection=MyConnection.connect()){	  
 			PreparedStatement pstatement=connection.prepareStatement(sql);
-			pstatement.setInt(3, em.getEmpId());
+			pstatement.setInt(4, em.getEmpId());
 			pstatement.setString(1, em.getEmpName());
 			pstatement.setDouble(2, em.getEmpSalary());
+			pstatement.setString(3, em.getQualification());
 			System.out.println(pstatement);
 			int no=pstatement.executeUpdate(); 
 			System.out.println("Number of rows affected: "+no);

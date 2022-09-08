@@ -21,6 +21,8 @@ ${successMessage}
 	<td>${emp.empSalary}</td>
 	<td>${emp.qualification}</td>
 	<td><a href="EmployeeServlet?act=delete&id=${emp.empId}">delete</a></td>
+	<td><a href="EmployeeServlet?act=get&id=${emp.empId}">update</a>
+	<td><a href="CartServlet?act=addtocart&id=${emp.empId}">ADD to CART</a>
 </tr>
 </c:forEach>
 </table>
